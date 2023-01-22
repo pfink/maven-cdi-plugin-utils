@@ -9,13 +9,12 @@ import java.util.Set;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.spi.CreationalContext;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Typed;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Qualifier;
-
-import org.jboss.weld.literal.DefaultLiteral;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
@@ -159,7 +158,7 @@ public class CdiProducerBean<T> implements Bean<T> {
       }
     }
     if (qualifiers.isEmpty()) {
-      qualifiers.add(DefaultLiteral.INSTANCE);
+      qualifiers.add(Default.Literal.INSTANCE);
     }
     return qualifiers;
   }
